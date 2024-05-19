@@ -14,12 +14,12 @@ import IconsResolver from 'unplugin-icons/resolver'
 export default defineConfig({
   server: {
     proxy: {
-      '/front': {
-        target: loadEnv('', process.cwd()).VITE_API_URL, //'https://mock.apifox.cn/m1/2401164-0-default',
+      '/test': {
+        target: loadEnv('', process.cwd()).VITE_API_URL,
         changeOrigin: true
       },
-      '/boss': {
-        target: loadEnv('', process.cwd()).VITE_API_URL, //'https://mock.apifox.cn/m1/2401164-0-default',
+      '/room_air': {
+        target: loadEnv('', process.cwd()).VITE_API_URL,
         changeOrigin: true
       }
     }
