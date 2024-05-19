@@ -1,10 +1,10 @@
 <script setup lang="ts">
-const isCollapse = ref(false)
+import { isCollapse } from '@/components/layout/isCollapse'
 </script>
 <template>
   <el-header>
     <!--   图标 -->
-    <el-icon>
+    <el-icon @click="isCollapse = !isCollapse">
       <IEpExpand v-show="isCollapse" />
       <IEpFold v-show="!isCollapse" />
     </el-icon>
@@ -20,9 +20,13 @@ const isCollapse = ref(false)
     <!--    下拉菜单-->
     <el-dropdown>
       <span class="el-dropdown-link">
-        Dropdown List
+        <el-avatar
+          shape="square"
+          :size="32"
+          :src="'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png'"
+        />
         <el-icon class="el-icon--right">
-          <arrow-down />
+          <IEpArrowDown />
         </el-icon>
       </span>
       <template #dropdown>
@@ -35,4 +39,25 @@ const isCollapse = ref(false)
   </el-header>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.el-header {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+.el-dropdown {
+  margin-left: auto;
+  .el-dropdown-link {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+  }
+}
+.el-icon {
+  margin-right: 10px;
+  cursor: pointer;
+}
+</style>

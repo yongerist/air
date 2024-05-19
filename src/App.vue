@@ -1,5 +1,13 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
+import request from '@/utils/request'
+request({
+  method: 'get',
+  // 将表示向自己的项目服务器发起请求
+  url: '/front/ad/getAdList'
+}).then((res) => {
+  console.log(res)
+})
 </script>
 
 <template>
